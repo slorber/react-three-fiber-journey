@@ -1,35 +1,6 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-const Page = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  & > h1 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-size: 8em;
-    margin: 0;
-    color: white;
-    line-height: 0.59em;
-    letter-spacing: -2px;
-  }
-
-  @media only screen and (max-width: 1000px) {
-    & > h1 {
-      font-size: 5em;
-      letter-spacing: -1px;
-    }
-  }
-
-  & > a {
-    margin: 0;
-    color: white;
-    text-decoration: none;
-  }
-`;
-
-const Global = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
@@ -69,4 +40,4 @@ const Global = createGlobalStyle`
   }
 `;
 
-export { Global, Page };
+export { GlobalStyle };

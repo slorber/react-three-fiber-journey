@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
-import styled from "styled-components";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import { useErrorBoundary } from "use-error-boundary";
-import { Global, Page as PageImpl } from "./styles";
+import { GlobalStyle } from "./styles";
 import Lessons, { Lesson } from "./lessons";
 
 function ErrorBoundary({ children, fallback, name }: any) {
@@ -73,7 +72,12 @@ function AppLessonList() {
             <li key={lesson.path}>
               <Link to={`/lessons/${lesson.path}`}>
                 {`${lesson.index}`.padStart(2, "0")} {lesson.name}
-              </Link>
+              </Link>{" "}
+              (
+              <a href={lesson.sourceDir} target={"_blank"}>
+                source
+              </a>
+              )
             </li>
           );
         })}
@@ -112,7 +116,7 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Global />
+      <GlobalStyle />
       <AppLayout />
     </BrowserRouter>
   );
