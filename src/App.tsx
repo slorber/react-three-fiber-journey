@@ -32,9 +32,10 @@ function LessonRoute({ lesson }: { lesson: Lesson }) {
     >
       <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
         <header style={{ padding: "15px 40px" }}>
-          <h1>
+          <h1>React-Three-Fiber Journey</h1>
+          <h2>
             Lesson {lesson.index} - {lesson.name}
-          </h1>
+          </h2>
         </header>
         <section
           style={{
@@ -60,7 +61,7 @@ function AppLessons() {
         render={() => {
           return (
             <div style={{ padding: 50 }}>
-              <h1>Welcome to React Three Fiber Journey</h1>
+              <h1>React Three Fiber Journey</h1>
             </div>
           );
         }}
