@@ -8,6 +8,7 @@ export default function TransformObjects() {
         <meshBasicMaterial color={"blue"} />
         <boxGeometry args={[1, 1, 1]} />
       </mesh>
+      <axesHelper />
     </Canvas>
   );
 }

@@ -30,9 +30,23 @@ function LessonRoute({ lesson }: { lesson: Lesson }) {
         </>
       )}
     >
-      <Suspense fallback={"..."}>
-        <Component />
-      </Suspense>
+      <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        <header style={{ padding: "15px 40px" }}>
+          <h1>
+            Lesson {lesson.index} - {lesson.name}
+          </h1>
+        </header>
+        <section
+          style={{
+            flex: 1,
+            backgroundColor: "#1e1e1e",
+          }}
+        >
+          <Suspense fallback={"..."}>
+            <Component />
+          </Suspense>
+        </section>
+      </div>
     </ErrorBoundary>
   );
 }
@@ -44,7 +58,11 @@ function AppLessons() {
         exact
         path="/"
         render={() => {
-          return <LessonRoute lesson={Lessons[0]} />;
+          return (
+            <div style={{ padding: 50 }}>
+              <h1>Welcome to React Three Fiber Journey</h1>
+            </div>
+          );
         }}
       />
       <Route
@@ -71,7 +89,7 @@ function AppLessonList() {
           return (
             <li key={lesson.path}>
               <Link to={`/lessons/${lesson.path}`}>
-                {`${lesson.index}`.padStart(2, "0")} {lesson.name}
+                {lesson.index} - {lesson.name}
               </Link>{" "}
               (
               <a href={lesson.sourceDir} target={"_blank"}>
@@ -106,7 +124,7 @@ function AppLayout() {
         <h1>Lessons</h1>
         <AppLessonList />
       </aside>
-      <main style={{ flex: 1, backgroundColor: "#1e1e1e" }}>
+      <main style={{ flex: 1 }}>
         <AppLessons />
       </main>
     </div>
