@@ -29,6 +29,20 @@ const Lessons: Lesson[] = [
       () => import("./05-transform-objects/transform-objects"),
     ),
   },
+  {
+    name: "Animations",
+    path: "animations",
+    index: 6,
+    sourceDir: sourceDirFor("06-animations"),
+    Component: React.lazy(() => import("./06-animations/animations")),
+  },
+  {
+    name: "Cameras",
+    path: "cameras",
+    index: 7,
+    sourceDir: sourceDirFor("07-cameras"),
+    Component: React.lazy(() => import("./07-cameras/cameras")),
+  },
 ];
 
 export default Lessons;
