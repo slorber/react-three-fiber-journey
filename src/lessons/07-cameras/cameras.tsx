@@ -40,7 +40,7 @@ function Scene() {
   );
 }
 
-export default function Cameras() {
+export function Cameras() {
   /*
   const camera = useConstant(() => {
     const cam = new THREE.PerspectiveCamera(75, 1, 0.1, 100);
@@ -78,13 +78,13 @@ export default function Cameras() {
   );
 }
 
-// TODO doesn't work
 export function CamerasDrei() {
   return (
     <Canvas>
-      <PerspectiveCamera position={[0, 0, 5]} fov={50} aspect={1} makeDefault>
-        <Scene />
-      </PerspectiveCamera>
+      <PerspectiveCamera position={[0, 0, 5]} fov={70} aspect={1} makeDefault />
+      <Scene />
     </Canvas>
   );
 }
+
+export default Cameras;

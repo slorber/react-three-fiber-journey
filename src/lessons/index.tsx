@@ -43,6 +43,15 @@ const Lessons: Lesson[] = [
     sourceDir: sourceDirFor("07-cameras"),
     Component: React.lazy(() => import("./07-cameras/cameras")),
   },
+  {
+    name: "Fullscreen and resizing",
+    path: "fullscreen-and-resizing",
+    index: 8,
+    sourceDir: sourceDirFor("08-fullscreen-and-resizing"),
+    Component: React.lazy(
+      () => import("./08-fullscreen-and-resizing/fullscreen-and-resizing"),
+    ),
+  },
 ];
 
 export default Lessons;

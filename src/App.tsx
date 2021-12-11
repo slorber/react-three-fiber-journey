@@ -40,6 +40,8 @@ function LessonRoute({ lesson }: { lesson: Lesson }) {
         <section
           style={{
             flex: 1,
+            // See https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container
+            minHeight: 0,
             backgroundColor: "#1e1e1e",
           }}
         >
@@ -125,7 +127,13 @@ function AppLayout() {
         <h1>Lessons</h1>
         <AppLessonList />
       </aside>
-      <main style={{ flex: 1 }}>
+      <main
+        style={{
+          flex: 1,
+          // See https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container
+          minWidth: 0,
+        }}
+      >
         <AppLessons />
       </main>
     </div>
