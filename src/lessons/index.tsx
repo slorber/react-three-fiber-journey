@@ -52,6 +52,13 @@ const Lessons: Lesson[] = [
       () => import("./08-fullscreen-and-resizing/fullscreen-and-resizing"),
     ),
   },
+  {
+    name: "Geometries",
+    path: "geometries",
+    index: 9,
+    sourceDir: sourceDirFor("09-geometries"),
+    Component: React.lazy(() => import("./09-geometries/geometries")),
+  },
 ];
 
 export default Lessons;
