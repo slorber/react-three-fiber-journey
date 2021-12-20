@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
@@ -32,23 +38,23 @@ function Scene() {
     new URL("./textures/door/roughness.jpg", import.meta.url).href,
   ]);
 
-  /*colorTexture.repeat.x = 2;
-  colorTexture.repeat.y = 3;
-  colorTexture.wrapS = THREE.RepeatWrapping;
-  colorTexture.wrapT = THREE.MirroredRepeatWrapping;
-  colorTexture.offset.x = 0.5;
-  colorTexture.offset.y = 0.5;
-  */
-
-  /*
-  colorTexture.center.x = 0.5;
-  colorTexture.center.y = 0.5;
-  colorTexture.rotation = Math.PI / 4;
-     */
-
-  // colorTexture.minFilter = THREE.NearestFilter;
-  // colorTexture.magFilter = THREE.NearestFilter;
-  // colorTexture.generateMipmaps = false;
+  useLayoutEffect(() => {
+    /*colorTexture.repeat.x = 2;
+    colorTexture.repeat.y = 3;
+    colorTexture.wrapS = THREE.RepeatWrapping;
+    colorTexture.wrapT = THREE.MirroredRepeatWrapping;
+    colorTexture.offset.x = 0.5;
+    colorTexture.offset.y = 0.5;
+    */
+    /*
+    colorTexture.center.x = 0.5;
+    colorTexture.center.y = 0.5;
+    colorTexture.rotation = Math.PI / 4;
+       */
+    // colorTexture.minFilter = THREE.NearestFilter;
+    // colorTexture.magFilter = THREE.NearestFilter;
+    // colorTexture.generateMipmaps = false;
+  }, [colorTexture]);
 
   return (
     <>
@@ -57,7 +63,13 @@ function Scene() {
         {/*<sphereGeometry args={[1, 32, 32]} />
         <coneGeometry args={[1, 1, 32]} />
         <torusGeometry args={[1, 0.35, 32, 100]} />*/}
-        <meshBasicMaterial map={colorTexture} />
+
+        <meshBasicMaterial
+          map={colorTexture}
+          // Without toneMapped=false, texture render lighter than on Three.js Journey
+          // Paul Henschel: "It renders lighter because standard three handles colors incorrectly. R3f puts you in sRGB color space by default"
+          toneMapped={false}
+        />
       </mesh>
       <axesHelper />
     </>
