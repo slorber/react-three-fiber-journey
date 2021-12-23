@@ -73,6 +73,13 @@ const Lessons: Lesson[] = [
     sourceDir: sourceDirFor("11-textures"),
     Component: React.lazy(() => import("./11-textures/textures")),
   },
+  {
+    name: "Materials",
+    path: "materials",
+    index: 12,
+    sourceDir: sourceDirFor("12-materials"),
+    Component: React.lazy(() => import("./12-materials/materials")),
+  },
 ];
 
 export default Lessons;

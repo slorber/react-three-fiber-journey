@@ -4,14 +4,14 @@ import { OrbitControls } from "@react-three/drei";
 
 function Scene() {
   return (
-    <mesh position={[1, -2, 0]}>
+    <mesh position={[0, 0, 0]}>
       <meshBasicMaterial color={"red"} />
       <boxGeometry args={[1, 1, 1]} />
     </mesh>
   );
 }
 
-export default function Webpack() {
+export default function Materials() {
   return (
     <Canvas>
       <Scene />
