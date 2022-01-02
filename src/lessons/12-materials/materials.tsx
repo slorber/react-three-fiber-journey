@@ -172,9 +172,17 @@ function Scene() {
      */
 
   const envMap = useCubeTexture(
-    ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    [
+      new URL("./textures/environmentMaps/0/px.jpg", import.meta.url),
+      new URL("./textures/environmentMaps/0/nx.jpg", import.meta.url),
+      new URL("./textures/environmentMaps/0/py.jpg", import.meta.url),
+      new URL("./textures/environmentMaps/0/ny.jpg", import.meta.url),
+      new URL("./textures/environmentMaps/0/pz.jpg", import.meta.url),
+      new URL("./textures/environmentMaps/0/nz.jpg", import.meta.url),
+    ].map((f) => f.href),
     {
-      path: new URL("./textures/environmentMaps/0/", import.meta.url).pathname,
+      // TODO remove? see https://github.com/pmndrs/drei/pull/711
+      path: "",
     },
   );
 
